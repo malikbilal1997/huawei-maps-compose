@@ -11,7 +11,6 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
-        maven(url = "https://developer.huawei.com/repo/")
     }
 }
 rootProject.name = "huawei-maps-compose"
