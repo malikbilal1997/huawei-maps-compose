@@ -1,3 +1,3 @@
 package com.google.android.gms.maps
 
-typealias CameraUpdateFactory = com.huawei.hms.maps.CameraUpdateFactory
+public typealias CameraUpdateFactory = com.huawei.hms.maps.CameraUpdateFactory

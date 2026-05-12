@@ -1,3 +1,3 @@
 package com.google.android.gms.maps.model
 
-typealias GroundOverlayOptions = com.huawei.hms.maps.model.GroundOverlayOptions
+public typealias GroundOverlayOptions = com.huawei.hms.maps.model.GroundOverlayOptions
