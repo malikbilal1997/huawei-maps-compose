@@ -13,7 +13,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.maps.android.compose.theme.MapsComposeSampleTheme
+import com.huawei.hms.maps.model.LatLng
 
 class MainActivity : ComponentActivity() {
 
@@ -43,7 +45,18 @@ class MainActivity : ComponentActivity() {
                             .padding(paddingValues),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        
+                        val singapore = LatLng(1.35, 103.87)
+                        val cameraPositionState = rememberCameraPositionState {
+                            position = CameraPosition.fromLatLngZoom(singapore, 10f)
+                        }
+                        HuaweiMap(
+                            modifier  = Modifier.fillMaxSize(),
+                            cameraPositionState = cameraPositionState,
+                        ) {
+                            Marker(
+                                state = rememberUpdatedMarkerState(singapore)
+                            )
+                        }
                     }
                 }
             }
