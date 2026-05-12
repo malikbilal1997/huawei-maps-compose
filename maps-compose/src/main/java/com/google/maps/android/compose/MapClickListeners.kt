@@ -9,7 +9,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.huawei.hms.maps.HuaweiMap
-import com.huawei.hms.maps.HuaweiMap.OnIndoorStateChangeListener
 import com.huawei.hms.maps.HuaweiMap.OnMapClickListener
 import com.huawei.hms.maps.HuaweiMap.OnMapLoadedCallback
 import com.huawei.hms.maps.HuaweiMap.OnMapLongClickListener
@@ -67,17 +66,8 @@ internal fun MapClickListenerUpdater() {
   val mapClickListeners = (currentComposer.applier as MapApplier).mapClickListeners
 
   with(mapClickListeners) {
-    ::indoorStateChangeListener.let { callback ->
-      MapClickListenerComposeNode(
-        callback,
-        HuaweiMap::setOnIndoorStateChangeListener,
-        object : OnIndoorStateChangeListener {
-          override fun onIndoorBuildingFocused() = callback().onIndoorBuildingFocused()
-
-          override fun onIndoorLevelActivated(building: IndoorBuilding) =
-            callback().onIndoorLevelActivated(building)
-        }
-      )
+    ::indoorStateChangeListener.let { _ ->
+      // The indoorStateChangeListener is not supported by HuaweiMap anymore
     }
 
     ::onMapClick.let { callback ->

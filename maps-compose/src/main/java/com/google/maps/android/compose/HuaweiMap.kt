@@ -404,8 +404,7 @@ private class MapLifecycleEventObserver(
 
 public enum class ComposeMapColorScheme(public val value: Int) {
   LIGHT(0),
-  DARK(1),
-  FOLLOW_SYSTEM(2)
+  DARK(1)
 }
 
 public suspend inline fun MapView.awaitMap(): HuaweiMap {

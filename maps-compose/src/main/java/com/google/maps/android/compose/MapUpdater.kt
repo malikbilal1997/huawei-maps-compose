@@ -116,6 +116,7 @@ internal inline fun MapUpdater(mapUpdaterState: MapUpdaterState) =
       set(mapProperties.mapType) { map.mapType = it.value }
       set(mapProperties.maxZoomPreference) { map.setMaxZoomPreference(it) }
       set(mapProperties.minZoomPreference) { map.setMinZoomPreference(it) }
+      set(mapColorScheme) { if (it != null) map.isDark = it == 1 }
 
       set(mapUiSettings.compassEnabled) { map.uiSettings.isCompassEnabled = it }
       set(mapUiSettings.indoorLevelPickerEnabled) { map.uiSettings.isIndoorLevelPickerEnabled = it }
